@@ -18,6 +18,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Controls target objects behaviour.
@@ -33,6 +34,9 @@ public class ObjectController : MonoBehaviour
     /// The material to use when this object is active (gazed at).
     /// </summary>
     public Material GazedAtMaterial;
+
+    public UnityEvent gazedEvent;
+    public UnityEvent notGazedEvent;
 
     // The objects are about 1 meter in radius, so the min/max target distance are
     // set so that the objects are always within the room (which is about 5 meters
@@ -87,6 +91,7 @@ public class ObjectController : MonoBehaviour
     public void OnPointerEnter()
     {
         SetMaterial(true);
+        gazedEvent?.Invoke();
     }
 
     /// <summary>
@@ -95,6 +100,7 @@ public class ObjectController : MonoBehaviour
     public void OnPointerExit()
     {
         SetMaterial(false);
+        notGazedEvent?.Invoke();
     }
 
     /// <summary>
