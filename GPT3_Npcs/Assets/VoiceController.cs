@@ -7,10 +7,11 @@ using UnityLibrary;
 
 public class VoiceController : MonoBehaviour
 {
-    const string LANG_CODE = "es-SP";
+    const string LANG_CODE = "en-US";
 
     public static VoiceController Instance;
 
+    [SerializeField]
     public TextMesh input;
     
     //Singleton
@@ -83,18 +84,19 @@ public class VoiceController : MonoBehaviour
 
     public void StopListening()
     {
+        input.text = "Processing...";
         SpeechToText.Instance.StopRecording();
     }
 
     void OnFinalSpeechResult(string result)
-    {
+    {        
         input.text = result;
-        OpenAI.Instance.Execute(result);
+        
     }
 
     void OnPartialSpeechResult(string result)
     {
-        Debug.Log("OnPartialSpeechResult: " + result);
+        input.text = result;
     }
     #endregion
 
