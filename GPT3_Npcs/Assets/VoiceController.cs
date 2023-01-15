@@ -90,8 +90,7 @@ public class VoiceController : MonoBehaviour
 
     void OnFinalSpeechResult(string result)
     {        
-        input.text = result;
-        
+        //input.text = result;
     }
 
     void OnPartialSpeechResult(string result)

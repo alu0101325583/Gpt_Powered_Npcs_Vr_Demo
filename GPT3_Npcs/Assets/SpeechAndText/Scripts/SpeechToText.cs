@@ -25,11 +25,19 @@ namespace TextSpeech
             }
         }
         public bool isShowPopupAndroid = true;
+        public bool ready = false;
 
 
         void Awake()
         {
-            _instance = this;
+            if (_instance == null)
+            {
+                _instance = this;
+            }
+            else
+            {
+                throw (new System.Exception("Only one instance of SpeechToText is allowed"));
+            }
         }
         #endregion
 
@@ -88,6 +96,16 @@ namespace TextSpeech
         private static extern void _TAG_SettingSpeech(string _language);
 #endif
 
+        public void cancel()
+        {
+#if UNITY_ANDROID              
+            if (isShowPopupAndroid == false && ready == true)
+            {
+                AndroidJavaClass javaUnityClass = new AndroidJavaClass("com.starseed.speechtotext.Bridge");
+                javaUnityClass.CallStatic("StopRecording");
+            }
+#endif  
+        }
         public void onMessage(string _message)
         {
         }
@@ -95,6 +113,7 @@ namespace TextSpeech
         {
             Debug.Log(_message);
         }
+
         /** Called when recognition results are ready. */
         public void onResults(string _results)
         {
@@ -173,6 +192,7 @@ namespace TextSpeech
         /** Called when the endpointer is ready for the user to start speaking. */
         public void onReadyForSpeech(string _params)
         {
+            ready = true;
             if (onReadyForSpeechCallback != null)
                 onReadyForSpeechCallback(_params);
         }

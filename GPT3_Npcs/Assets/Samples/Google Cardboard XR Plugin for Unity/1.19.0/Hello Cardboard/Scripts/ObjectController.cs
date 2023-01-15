@@ -49,6 +49,7 @@ public class ObjectController : MonoBehaviour
     private Renderer _myRenderer;
     private Vector3 _startingPosition;
 
+
     /// <summary>
     /// Start is called before the first frame update.
     /// </summary>
@@ -92,6 +93,8 @@ public class ObjectController : MonoBehaviour
     {
         SetMaterial(true);
         gazedEvent?.Invoke();
+
+        
     }
 
     /// <summary>
