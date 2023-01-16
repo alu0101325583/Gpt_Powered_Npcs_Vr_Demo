@@ -1,25 +1,13 @@
 {
     "m_SelectedDeviceId": "285d2d2611057ece",
     "m_SelectedPackage": {
-        "deviceId": "285d2d2611057ece",
-        "name": "com.DefaultCompany.GPT3_Npcs",
-        "processId": 23409,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "285d2d2611057ece",
-            "name": "com.DefaultCompany.GPT3_Npcs",
-            "processId": 28748,
-            "exited": true
-        },
-        {
-            "deviceId": "285d2d2611057ece",
-            "name": "com.DefaultCompany.GPT3_Npcs",
-            "processId": 32065,
-            "exited": true
-        },
         {
             "deviceId": "285d2d2611057ece",
             "name": "com.sec.android.app.launcher",
@@ -42,12 +30,18 @@
             "deviceId": "285d2d2611057ece",
             "name": "com.DefaultCompany.GPT3_Npcs",
             "processId": 8246,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "285d2d2611057ece",
             "name": "com.DefaultCompany.GPT3_Npcs",
             "processId": 23409,
+            "exited": true
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 18909,
             "exited": false
         }
     ],
