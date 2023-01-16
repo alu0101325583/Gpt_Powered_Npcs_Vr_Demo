@@ -3,23 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "285d2d2611057ece",
         "name": "com.DefaultCompany.GPT3_Npcs",
-        "processId": 4975,
+        "processId": 23409,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "285d2d2611057ece",
-            "name": "",
-            "processId": 20899,
-            "exited": true
-        },
-        {
-            "deviceId": "285d2d2611057ece",
-            "name": "com.DefaultCompany.GPT3_Npcs",
-            "processId": 28213,
-            "exited": true
-        },
         {
             "deviceId": "285d2d2611057ece",
             "name": "com.DefaultCompany.GPT3_Npcs",
@@ -42,6 +30,24 @@
             "deviceId": "285d2d2611057ece",
             "name": "com.DefaultCompany.GPT3_Npcs",
             "processId": 4975,
+            "exited": true
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 5090,
+            "exited": true
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 8246,
+            "exited": false
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 23409,
             "exited": false
         }
     ],

@@ -99,10 +99,10 @@ namespace TextSpeech
         public void cancel()
         {
 #if UNITY_ANDROID              
-            if (isShowPopupAndroid == false && ready == true)
+            if (isShowPopupAndroid == false)
             {
                 AndroidJavaClass javaUnityClass = new AndroidJavaClass("com.starseed.speechtotext.Bridge");
-                javaUnityClass.CallStatic("StopRecording");
+                javaUnityClass.CallStatic("cancel");
             }
 #endif  
         }

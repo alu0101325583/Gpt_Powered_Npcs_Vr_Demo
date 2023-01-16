@@ -84,13 +84,14 @@ public class VoiceController : MonoBehaviour
 
     public void StopListening()
     {
-        input.text = "Processing...";
+        //input.text = "Processing...";
         SpeechToText.Instance.StopRecording();
     }
 
     void OnFinalSpeechResult(string result)
     {        
-        //input.text = result;
+        input.text = result;
+        OpenAI.Instance.Execute(result);
     }
 
     void OnPartialSpeechResult(string result)
