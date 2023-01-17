@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   modelName: text-davinci-003
-  output: {fileID: 504363655}
+  output: {fileID: 0}
 --- !u!4 &760059619
 Transform:
   m_ObjectHideFlags: 0

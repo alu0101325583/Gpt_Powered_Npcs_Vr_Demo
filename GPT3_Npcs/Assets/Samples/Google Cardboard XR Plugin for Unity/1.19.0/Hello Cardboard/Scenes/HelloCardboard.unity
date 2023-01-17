@@ -960,6 +960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isShowPopupAndroid: 0
+  ready: 0
 --- !u!4 &1133148872
 Transform:
   m_ObjectHideFlags: 0
