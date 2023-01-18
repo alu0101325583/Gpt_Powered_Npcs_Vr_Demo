@@ -30,7 +30,7 @@ Desarrollamos una interfaz multimodal para comunicarnos con los NPC's donde se i
 
 # Gif de la ejecución
 
-![]()
+![](https://github.com/alu0101325583/Gpt_Powered_Npcs_Vr_Demo/blob/main/Screen_Recording_20230118-202102_GPT3_Npcs_AdobeExpress.gif)
 
 # Acta de los acuerdos del grupo
 
