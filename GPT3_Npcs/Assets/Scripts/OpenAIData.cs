@@ -7,9 +7,10 @@ namespace UnityLibrary
         public string prompt;
         public float temperature;
         public int max_tokens;
-        public int top_p;
-        public int frequency_penalty;
-        public int presence_penalty;
+        public float top_p;
+        public float frequency_penalty;
+        public float presence_penalty;
+        public string[] stop;
     }
 
     [System.Serializable]

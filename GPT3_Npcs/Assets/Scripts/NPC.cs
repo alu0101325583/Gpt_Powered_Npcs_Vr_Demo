@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityLibrary;
 
 public class NPC : MonoBehaviour
 {
     public UnityEvent gazedEvent;
     public UnityEvent notGazedEvent;
-    public string context;
+    public NPCDATA data;
 
     /// <summary>
     /// This method is called by the Main Camera when it starts gazing at this GameObject.
@@ -20,6 +21,7 @@ public class NPC : MonoBehaviour
     }
     public void OnPointerEnter()
     {
+        OpenAI.Instance.loadedNpc = data;
         gazedEvent?.Invoke();
     }
 

@@ -15,7 +15,11 @@ namespace UnityLibrary
 
         public string modelName = "text-davinci-003";
 
+        public NPCDATA loadedNpc;
+
         public static OpenAI Instance;
+
+        public string context;
 
        //public InputField inputPrompt;
         public TextMesh output;
@@ -28,9 +32,11 @@ namespace UnityLibrary
         //Singleton
         void Awake() 
         {
+            
             if (Instance == null)
             {
                 Instance = this;
+                loadedNpc = null;
             }
             else
             {
@@ -53,16 +59,19 @@ namespace UnityLibrary
             isRunning = true;
             //loadingIcon.SetActive(true);
 
+            string finalPrompt = PreparePromt(input);
+
             // fill in request data
             RequestData requestData = new RequestData()
             {
                 model = modelName,
-                prompt = input,
-                temperature = 0.7f,
-                max_tokens = 8,
-                top_p = 1,
-                frequency_penalty = 0,
-                presence_penalty = 0
+                prompt = finalPrompt,
+                temperature = loadedNpc.Temperature,
+                max_tokens = loadedNpc.MaxTokens,
+                top_p = loadedNpc.TopP,
+                frequency_penalty = loadedNpc.FrequencyPenalty,
+                presence_penalty = loadedNpc.PresencePenalty,
+                stop = loadedNpc.StopSequences
             };
 
             string jsonData = JsonUtility.ToJson(requestData);
@@ -112,13 +121,18 @@ namespace UnityLibrary
             {
                 Debug.LogError("Apikey missing: " + keypath);
             }
-            
-            
+               
             //Debug.Log("Load apikey: " + keypath);
             apiKey = File.ReadAllText(keypath).Trim();
             */
             apiKey = "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";
             Debug.Log("API key loaded, len= " + apiKey.Length);
+        }
+
+        string PreparePromt(string input)
+        {
+            string finalPrompt = loadedNpc.Description + "\n\n" + loadedNpc.Examples + "\n\n" + loadedNpc.PlayerName + ": " + input + "\n" + loadedNpc.CharacterName + ": ";
+            return finalPrompt;
         }
     }
 }
