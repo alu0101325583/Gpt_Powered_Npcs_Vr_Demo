@@ -2,7 +2,7 @@
 
 Version mínima de Android: Android 7.0
 
-Version recomendada de Android: Android 10.0
+Version de Android probada: Android 10.0
 
 Requiere uso del microfono, comprobar si la aplicacion de Google tiene permiso de microfono.
 
@@ -30,7 +30,7 @@ Desarrollamos una interfaz multimodal para comunicarnos con los NPC's donde se i
 
 # Gif de la ejecución
 
-kk
+![]()
 
 # Acta de los acuerdos del grupo
 
