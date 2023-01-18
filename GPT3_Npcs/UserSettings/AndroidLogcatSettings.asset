@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "285d2d2611057ece",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "285d2d2611057ece",
+        "name": "com.DefaultCompany.GPT3_Npcs",
+        "processId": 29105,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -17,24 +17,6 @@
         {
             "deviceId": "285d2d2611057ece",
             "name": "com.DefaultCompany.GPT3_Npcs",
-            "processId": 4975,
-            "exited": true
-        },
-        {
-            "deviceId": "285d2d2611057ece",
-            "name": "com.DefaultCompany.GPT3_Npcs",
-            "processId": 5090,
-            "exited": true
-        },
-        {
-            "deviceId": "285d2d2611057ece",
-            "name": "com.DefaultCompany.GPT3_Npcs",
-            "processId": 8246,
-            "exited": true
-        },
-        {
-            "deviceId": "285d2d2611057ece",
-            "name": "com.DefaultCompany.GPT3_Npcs",
             "processId": 23409,
             "exited": true
         },
@@ -42,6 +24,36 @@
             "deviceId": "285d2d2611057ece",
             "name": "com.DefaultCompany.GPT3_Npcs",
             "processId": 18909,
+            "exited": true
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 10330,
+            "exited": true
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 16513,
+            "exited": true
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 27309,
+            "exited": false
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 28014,
+            "exited": false
+        },
+        {
+            "deviceId": "285d2d2611057ece",
+            "name": "com.DefaultCompany.GPT3_Npcs",
+            "processId": 29105,
             "exited": false
         }
     ],

@@ -7,7 +7,7 @@ using UnityLibrary;
 
 public class VoiceController : MonoBehaviour
 {
-    const string LANG_CODE = "es-ES";
+    const string LANG_CODE = "en-US";
 
     public static VoiceController Instance;
 
