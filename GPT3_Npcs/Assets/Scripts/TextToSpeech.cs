@@ -16,7 +16,7 @@ namespace TextSpeech
             {
                 if (_instance == null)
                 {
-                        //Create if it doesn't exist
+                    //Create if it doesn't exist
                     GameObject go = new GameObject("TextToSpeech");
                     _instance = go.AddComponent<TextToSpeech>();
                 }
@@ -24,6 +24,7 @@ namespace TextSpeech
             }
         }
 
+        //singleton
         void Awake()
         {
             _instance = this;
@@ -39,6 +40,10 @@ namespace TextSpeech
         [Range(0.5f, 2)]
         public float rate = 1f; //[min - max] android:[0.5 - 2] iOS:[0 - 1]
 
+        /// <summary>
+        /// This method is called by the voice controller on start to set up the speech engine.
+        /// </summary>
+        /// 
         public void Setting(string language, float _pitch, float _rate)
         {
             pitch = _pitch;
@@ -51,6 +56,11 @@ namespace TextSpeech
         javaUnityClass.CallStatic("SettingTextToSpeed", language, pitch, rate);
 #endif
         }
+
+        /// <summary>
+        /// This method is called by the OpeanAI controller when the response text has been generated
+        /// </summary>
+        /// 
         public void StartSpeak(string _message)
         {
 #if UNITY_EDITOR
@@ -61,6 +71,11 @@ namespace TextSpeech
         javaUnityClass.CallStatic("OpenTextToSpeed", _message);
 #endif
         }
+
+        /// <summary>
+        /// This method may be called if you want to abruptly end the speech.
+        /// </summary>
+        /// 
         public void StopSpeak()
         {
 #if UNITY_EDITOR
@@ -71,7 +86,12 @@ namespace TextSpeech
         javaUnityClass.CallStatic("StopTextToSpeed");
 #endif
         }
-
+        /// <summary>
+        /// The following are methods called automatically by the native code based on triggered events
+        /// they use the callbacks (assigned in the voice controller) to communicate with the voice controller.
+        /// Actually they are not used in this project, just for debugging purposes.
+        /// </summary>
+        /// 
         public void onSpeechRange(string _message)
         {
             if (onSpeakRangeCallback != null && _message != null)
@@ -94,8 +114,8 @@ namespace TextSpeech
         }
         public void onMessage(string _message)
         {
-
         }
+        
         /** Denotes the language is available for the language by the locale, but not the country and variant. */
         public const int LANG_AVAILABLE = 0;
         /** Denotes the language data is missing. */

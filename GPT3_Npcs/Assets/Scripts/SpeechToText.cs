@@ -24,10 +24,8 @@ namespace TextSpeech
                 return _instance;
             }
         }
-        public bool isShowPopupAndroid = true;
-        public bool ready = false;
-
-
+        
+        //singleton
         void Awake()
         {
             if (_instance == null)
@@ -43,6 +41,13 @@ namespace TextSpeech
 
         public Action<string> onResultCallback;
 
+        public bool isShowPopupAndroid = true;
+        public bool ready = false;
+
+        /// <summary>
+        /// This method is called by the voice controller on start to set up the STT engine.
+        /// </summary>
+        /// 
         public void Setting(string _language)
         {
 #if UNITY_EDITOR
@@ -53,6 +58,12 @@ namespace TextSpeech
         javaUnityClass.CallStatic("SettingSpeechToText", _language);
 #endif
         }
+
+        /// <summary>
+        /// This method is called by the voice controller when the npc triggers the event of start listening,
+        /// which happens when the npc detects tht he is being gazed at by the user.
+        /// </summary>
+        /// 
         public void StartRecording(string _message = "")
         {
 #if UNITY_EDITOR
@@ -71,6 +82,12 @@ namespace TextSpeech
         }
 #endif
         }
+        
+        /// <summary>
+        /// This method is called by the voice controller when the npc triggers the event of stop listening,
+        /// which happens when the npc detects tht he is not being gazed at by the user.
+        /// </summary>
+        /// 
         public void StopRecording()
         {
 #if UNITY_EDITOR
@@ -96,16 +113,12 @@ namespace TextSpeech
         private static extern void _TAG_SettingSpeech(string _language);
 #endif
 
-        public void cancel()
-        {
-#if UNITY_ANDROID              
-            if (isShowPopupAndroid == false)
-            {
-                AndroidJavaClass javaUnityClass = new AndroidJavaClass("com.starseed.speechtotext.Bridge");
-                javaUnityClass.CallStatic("cancel");
-            }
-#endif  
-        }
+        /// <summary>
+        /// The following are methods called automatically by the native code based on triggered events
+        /// they use the callbacks (assigned in the voice controller) to communicate with the voice controller.
+        /// Actually not every method is used in this project, just for debugging purposes.
+        /// </summary>
+        /// 
         public void onMessage(string _message)
         {
         }

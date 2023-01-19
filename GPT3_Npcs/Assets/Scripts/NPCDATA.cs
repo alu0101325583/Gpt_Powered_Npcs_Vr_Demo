@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is de definition class of the NPC scriptable Object, containing all the information related to a NPC
+/// </summary>
+/// 
+
 [CreateAssetMenu(fileName = "New NPC", menuName = "ScriptableObjects/NPC")]
 public class NPCDATA : ScriptableObject
 {

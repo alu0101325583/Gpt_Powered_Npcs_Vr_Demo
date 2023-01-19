@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-//código sacado de https://github.com/unitycoder/UnityOpenAIGPT3/blob/main/Assets/Scripts/Data/OpenAIData.cs
-//ver video https://www.youtube.com/watch?v=ripsfVDPym0
+//Code based of https://github.com/unitycoder/UnityOpenAIGPT3/blob/main/Assets/Scripts
 namespace UnityLibrary
 {
     public class OpenAI : MonoBehaviour
@@ -19,12 +18,7 @@ namespace UnityLibrary
 
         public static OpenAI Instance;
 
-        public string context;
-
-       //public InputField inputPrompt;
         public TextMesh output;
-        
-       //public GameObject loadingIcon;
 
         string apiKey = null;
         bool isRunning = false;
@@ -48,16 +42,43 @@ namespace UnityLibrary
         {
             LoadAPIKey();
         }
+        void LoadAPIKey()
+        {
+            // TODO optionally use from env.variable
 
+            apiKey = "Replace with your api Key";
+            Debug.Log("API key loaded, len= " + apiKey.Length);
+        }
+
+        /// <summary>
+        /// This method is called by the execution method to prepare the complete prompt given to GPT3
+        /// </summary>
+        /// 
+        string PreparePromt(string input)
+        {
+            string finalPrompt = loadedNpc.Description + "\n\n" + loadedNpc.Examples + "\n\n" + loadedNpc.PlayerName + ": " + input + "\n" + loadedNpc.CharacterName + ": ";
+            return finalPrompt;
+        }
+        
+        /// <summary>
+        /// This method is called by the voice controller when it has finished processing the user's input voice into text
+        /// </summary>
+        /// 
         public void Execute(string input)
         {
+            //avoid running multiple times
             if (isRunning)
             {
                 Debug.LogError("Already running");
                 return;
             }
             isRunning = true;
-            //loadingIcon.SetActive(true);
+        
+            if (apiKey == null || apiKey.Length == 0 || apiKey == "Replace with your api Key")
+            {
+                Debug.LogError("API key not set");
+                return;
+            }
 
             string finalPrompt = PreparePromt(input);
 
@@ -95,44 +116,22 @@ namespace UnityLibrary
                 else
                 {
                     Debug.Log(request.downloadHandler.text);
+                    
                     // parse the results to get values 
                     OpenAIAPI responseData = JsonUtility.FromJson<OpenAIAPI>(request.downloadHandler.text);
+                    
                     // sometimes contains 2 empty lines at start?
                     string generatedText = responseData.choices[0].text.TrimStart('\n').TrimStart('\n');
 
+                    //update the output text GameObject 
                     output.text = generatedText;
+
+                    //call the voice controller to speak the generated text
                     VoiceController.Instance.StartSpeaking(generatedText);
                 }
-                //loadingIcon.SetActive(false);
                 isRunning = false;
             };
 
-        } // execute
-
-        void LoadAPIKey()
-        {
-            // TODO optionally use from env.variable
-
-            // MODIFY path to API key if needed
-
-            /*
-            var keypath = Path.Combine(Application.streamingAssetsPath, "secretkey.txt");
-            if (File.Exists(keypath) == false)
-            {
-                Debug.LogError("Apikey missing: " + keypath);
-            }
-               
-            //Debug.Log("Load apikey: " + keypath);
-            apiKey = File.ReadAllText(keypath).Trim();
-            */
-            apiKey = "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";
-            Debug.Log("API key loaded, len= " + apiKey.Length);
-        }
-
-        string PreparePromt(string input)
-        {
-            string finalPrompt = loadedNpc.Description + "\n\n" + loadedNpc.Examples + "\n\n" + loadedNpc.PlayerName + ": " + input + "\n" + loadedNpc.CharacterName + ": ";
-            return finalPrompt;
         }
     }
 }

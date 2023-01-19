@@ -1,5 +1,11 @@
 namespace UnityLibrary
 {
+    /// <summary>
+    /// This file contains different classes that are used to store the data of the
+    /// requests and responses that can be performed and obtained when communicating with the OpenAI web API
+    /// </summary>
+    /// 
+
     [System.Serializable]
     public class RequestData
     {
