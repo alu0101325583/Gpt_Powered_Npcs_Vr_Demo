@@ -31,7 +31,11 @@ We developed a multimodal interface to communicate with NPCs which includes the 
 
 ## Link to the video of the execution:
 
-[Link](https://drive.google.com/file/d/1B93Us3VGfMXEUgijWwgMgUeUyNCyubeY/view?usp=sharing)
+[Video](https://drive.google.com/file/d/1B93Us3VGfMXEUgijWwgMgUeUyNCyubeY/view?usp=sharing)
+
+## Link to explanatory slides
+
+[Slides](https://docs.google.com/presentation/d/1Fxsn4aJ7tmsBcNgAlFrFgiSzafDgbOZXP2k7qyv_UNI/edit?usp=sharing)
 
 ## Execution gif:
 
@@ -87,7 +91,11 @@ Desarrollamos una interfaz multimodal para comunicarnos con los NPC's donde se i
 
 ## Enlace al video de la ejecución
 
-[Link](https://drive.google.com/file/d/1B93Us3VGfMXEUgijWwgMgUeUyNCyubeY/view?usp=sharing)
+[Video](https://drive.google.com/file/d/1B93Us3VGfMXEUgijWwgMgUeUyNCyubeY/view?usp=sharing)
+
+## Enlace a la presentacion explicatoria
+
+[Slides](https://docs.google.com/presentation/d/1Fxsn4aJ7tmsBcNgAlFrFgiSzafDgbOZXP2k7qyv_UNI/edit?usp=sharing)
 
 ## Gif de la ejecución
 
